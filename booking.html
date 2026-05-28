@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Бронювання номера · Готель</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <div class="page-shell">
+    <nav class="top-nav">
+      <div class="logo">ГОТЕЛЬ<span>ІНН</span></div>
+
+      <div class="nav-links">
+        <a href="index.html">Головна</a>
+        <a href="booking.html">Бронювання</a>
+        <a href="admin.html">Адмін-панель</a>
+        <a href="requirements.html">Вимоги</a>
+      </div>
+    </nav>
+
+    <main class="single-page">
+      <section class="section-card">
+        <div class="section-title">
+          <div>
+            <h2>Створення бронювання</h2>
+            <p>Клієнт вводить дані, система перевіряє форму та зберігає заявку.</p>
+          </div>
+        </div>
+
+        <div class="booking-layout">
+          <form id="bookingForm" class="form">
+            <label>
+              Ім’я клієнта *
+              <input id="clientName" type="text" placeholder="Наприклад: Вадим">
+            </label>
+
+            <label>
+              Телефон *
+              <input id="clientPhone" type="tel" placeholder="+380XXXXXXXXX">
+            </label>
+
+            <label>
+              Дата заїзду *
+              <input id="checkIn" type="date">
+            </label>
+
+            <label>
+              Дата виїзду *
+              <input id="checkOut" type="date">
+            </label>
+
+            <label>
+              Номер *
+              <select id="roomSelect">
+                <option value="">Оберіть номер</option>
+              </select>
+            </label>
+
+            <label>
+              Коментар
+              <textarea id="comment" rows="3" placeholder="Додаткові побажання"></textarea>
+            </label>
+
+            <button class="form-btn primary" type="submit">Забронювати</button>
+            <button class="form-btn secondary" type="button" id="resetBtn">Скинути демо-дані</button>
+
+            <p id="message" class="message"></p>
+          </form>
+
+          <div>
+            <div class="stats-row">
+              <div class="stat">
+                <span id="roomsCount">0</span>
+                <p>Номерів</p>
+              </div>
+
+              <div class="stat">
+                <span id="bookingsCount">0</span>
+                <p>Бронювань</p>
+              </div>
+
+              <div class="stat">
+                <span id="freeCount">0</span>
+                <p>Вільних</p>
+              </div>
+
+              <div class="stat">
+                <span id="incomeCount">0 грн</span>
+                <p>Сума</p>
+              </div>
+            </div>
+
+            <div class="requirements-note">
+              <h3>Що перекриває цей модуль?</h3>
+              <p>
+                Форма бронювання перекриває вимоги до введення даних клієнта,
+                перевірки обов’язкових полів, вибору номера, створення заявки
+                та збереження інформації у LocalStorage.
+              </p>
+            </div>
+
+            <div class="page-actions">
+              <a href="admin.html" class="btn primary">Перейти до адмін-панелі</a>
+              <a href="index.html" class="btn secondary">Повернутися на головну</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      Програмна система «Готель» · Сторінка бронювання
+    </footer>
+  </div>
+</body>
+</html>

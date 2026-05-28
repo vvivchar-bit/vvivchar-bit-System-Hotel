@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Керування номерами · Готель</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .room-form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .room-form-grid label {
+      font-weight: 700;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .room-form-grid input,
+    .room-form-grid select,
+    .room-form-grid textarea {
+      width: 100%;
+      border: 1px solid #cbd5e1;
+      border-radius: 14px;
+      padding: 12px 14px;
+      font: inherit;
+      background: #ffffff;
+      box-sizing: border-box;
+    }
+
+    .room-form-grid textarea {
+      min-height: 92px;
+      resize: vertical;
+    }
+
+    .full-field {
+      grid-column: 1 / -1;
+    }
+
+    .admin-room-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .small-btn {
+      border: 0;
+      border-radius: 12px;
+      padding: 9px 14px;
+      font-weight: 800;
+      cursor: pointer;
+      background: #e5e7eb;
+    }
+
+    .small-btn.primary-action {
+      background: #ff8a35;
+      color: #ffffff;
+    }
+
+    .small-btn.edit-action {
+      background: #16a34a;
+      color: #ffffff;
+    }
+
+    .message {
+      margin-top: 14px;
+      font-weight: 800;
+    }
+
+    .message.success {
+      color: #047857;
+    }
+
+    .message.error {
+      color: #dc2626;
+    }
+
+    @media (max-width: 760px) {
+      .room-form-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page-shell">
+    <nav class="top-nav">
+      <div class="logo">ГОТЕЛЬ<span>ІНН</span></div>
+
+      <div class="nav-links">
+        <a href="index.html">Головна</a>
+        <a href="booking.html">Бронювання</a>
+        <a href="admin.html">Адмін-панель</a>
+        <a href="requirements.html">Вимоги</a>
+        <a href="glossary.html">Глосарій</a>
+        <a href="rooms-admin.html">Номери</a>
+      </div>
+    </nav>
+
+    <main class="single-page">
+      <section class="section-card">
+        <div class="section-title">
+          <div>
+            <h2>Керування номерами</h2>
+            <p>
+              Адміністратор може додавати нові номери та редагувати інформацію
+              про наявні номери готелю.
+            </p>
+          </div>
+        </div>
+
+        <div class="requirements-note">
+          <h3>Що перекриває цей модуль?</h3>
+          <p>
+            Цей модуль підтверджує, що адміністратор працює не тільки із заявками,
+            а й може керувати номерним фондом: додавати номер, змінювати тип,
+            ціну, опис, статус і посилання на зображення номера.
+          </p>
+        </div>
+
+        <form id="roomForm">
+          <input type="hidden" id="editRoomId">
+
+          <div class="room-form-grid">
+            <div>
+              <label for="roomNumber">Номер кімнати *</label>
+              <input id="roomNumber" type="text" placeholder="Наприклад: 401">
+            </div>
+
+            <div>
+              <label for="roomType">Тип номера *</label>
+              <select id="roomType">
+                <option value="Одномісний">Одномісний</option>
+                <option value="Двомісний">Двомісний</option>
+                <option value="Люкс">Люкс</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="roomPrice">Ціна за добу *</label>
+              <input id="roomPrice" type="number" min="0" placeholder="Наприклад: 1500">
+            </div>
+
+            <div>
+              <label for="roomStatus">Статус номера</label>
+              <select id="roomStatus">
+                <option value="Вільний">Вільний</option>
+                <option value="Заброньований">Заброньований</option>
+                <option value="Зайнятий">Зайнятий</option>
+              </select>
+            </div>
+
+            <div class="full-field">
+              <label for="roomDescription">Опис номера *</label>
+              <textarea id="roomDescription" placeholder="Короткий опис номера"></textarea>
+            </div>
+
+            <div class="full-field">
+              <label for="roomImage">Посилання на зображення</label>
+              <input id="roomImage" type="text" placeholder="Наприклад: images/room-401.jpg">
+            </div>
+          </div>
+
+          <div class="admin-room-actions">
+            <button type="submit" class="small-btn primary-action" id="saveRoomBtn">
+              Додати номер
+            </button>
+
+            <button type="button" class="small-btn" id="resetRoomFormBtn">
+              Очистити форму
+            </button>
+          </div>
+
+          <div id="roomMessage" class="message"></div>
+        </form>
+
+        <div class="requirements-note" style="margin-top: 28px;">
+          <h3>Список номерів</h3>
+          <p>
+            У таблиці показано поточні номери готелю. Кнопка «Редагувати»
+            переносить дані номера у форму для зміни інформації.
+          </p>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Номер</th>
+                <th>Тип</th>
+                <th>Ціна</th>
+                <th>Статус</th>
+                <th>Опис</th>
+                <th>Дії</th>
+              </tr>
+            </thead>
+            <tbody id="roomsTable"></tbody>
+          </table>
+        </div>
+
+        <div class="page-actions">
+          <a href="admin.html" class="btn secondary">Повернутися до адмін-панелі</a>
+          <a href="booking.html" class="btn primary">Перейти до бронювання</a>
+          <a href="index.html" class="btn secondary">На головну</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      Програмна система «Готель» · Керування номерами
+    </footer>
+  </div>
+
+  <script>
+    const roomsTable = document.getElementById("roomsTable");
+    const roomForm = document.getElementById("roomForm");
+    const editRoomIdInput = document.getElementById("editRoomId");
+    const roomNumberInput = document.getElementById("roomNumber");
+    const roomTypeInput = document.getElementById("roomType");
+    const roomPriceInput = document.getElementById("roomPrice");
+    const roomStatusInput = document.getElementById("roomStatus");
+    const roomDescriptionInput = document.getElementById("roomDescription");
+    const roomImageInput = document.getElementById("roomImage");
+    const roomMessage = document.getElementById("roomMessage");
+    const saveRoomBtn = document.getElementById("saveRoomBtn");
+    const resetRoomFormBtn = document.getElementById("resetRoomFormBtn");
+
+    let rooms = [];
+
+    function getRoomNumber(room) {
+      return room.number || room.id || "";
+    }
+
+    function showMessage(text, type) {
+      roomMessage.textContent = text;
+      roomMessage.className = "message " + type;
+    }
+
+    function clearMessage() {
+      roomMessage.textContent = "";
+      roomMessage.className = "message";
+    }
+
+    function resetForm() {
+      editRoomIdInput.value = "";
+      roomNumberInput.value = "";
+      roomTypeInput.value = "Одномісний";
+      roomPriceInput.value = "";
+      roomStatusInput.value = "Вільний";
+      roomDescriptionInput.value = "";
+      roomImageInput.value = "";
+      saveRoomBtn.textContent = "Додати номер";
+      clearMessage();
+    }
+
+    async function loadRooms() {
+      const response = await fetch("/api/rooms");
+      rooms = await response.json();
+      renderRooms();
+    }
+
+    function renderRooms() {
+      if (!rooms.length) {
+        roomsTable.innerHTML = `
+          <tr>
+            <td colspan="6">Номери поки відсутні.</td>
+          </tr>
+        `;
+        return;
+      }
+
+      roomsTable.innerHTML = rooms.map((room) => {
+        const number = getRoomNumber(room);
+        const type = room.type || "—";
+        const price = Number(room.price || 0).toLocaleString("uk-UA");
+        const status = room.status || "—";
+        const description = room.description || "—";
+
+        return `
+          <tr>
+            <td>№${number}</td>
+            <td>${type}</td>
+            <td>${price} грн / доба</td>
+            <td>${status}</td>
+            <td>${description}</td>
+            <td>
+              <button class="small-btn edit-action" onclick="editRoom('${number}')">
+                Редагувати
+              </button>
+            </td>
+          </tr>
+        `;
+      }).join("");
+    }
+
+    window.editRoom = function(roomNumber) {
+      const room = rooms.find((item) => String(getRoomNumber(item)) === String(roomNumber));
+
+      if (!room) {
+        showMessage("Номер не знайдено.", "error");
+        return;
+      }
+
+      editRoomIdInput.value = getRoomNumber(room);
+      roomNumberInput.value = getRoomNumber(room);
+      roomTypeInput.value = room.type || "Одномісний";
+      roomPriceInput.value = room.price || "";
+      roomStatusInput.value = room.status || "Вільний";
+      roomDescriptionInput.value = room.description || "";
+      roomImageInput.value = room.image || "";
+
+      saveRoomBtn.textContent = "Зберегти зміни";
+      showMessage("Дані номера перенесено у форму редагування.", "success");
+
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    };
+
+    roomForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      const number = roomNumberInput.value.trim();
+      const type = roomTypeInput.value;
+      const price = Number(roomPriceInput.value);
+      const status = roomStatusInput.value;
+      const description = roomDescriptionInput.value.trim();
+      const image = roomImageInput.value.trim();
+
+      if (!number) {
+        showMessage("Вкажіть номер кімнати.", "error");
+        return;
+      }
+
+      if (!price || price <= 0) {
+        showMessage("Вкажіть коректну ціну номера.", "error");
+        return;
+      }
+
+      if (!description) {
+        showMessage("Вкажіть опис номера.", "error");
+        return;
+      }
+
+      const payload = {
+        number,
+        type,
+        price,
+        status,
+        description,
+        image
+      };
+
+      const editRoomId = editRoomIdInput.value;
+
+      const url = editRoomId ? `/api/rooms/${editRoomId}` : "/api/rooms";
+      const method = editRoomId ? "PATCH" : "POST";
+
+      const response = await fetch(url, {
+        method,
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        showMessage(result.message || "Не вдалося зберегти номер.", "error");
+        return;
+      }
+
+      showMessage(editRoomId ? "Інформацію про номер оновлено." : "Новий номер додано.", "success");
+      resetForm();
+      await loadRooms();
+    });
+
+    resetRoomFormBtn.addEventListener("click", resetForm);
+
+    loadRooms();
+  </script>
+</body>
+</html>

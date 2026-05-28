@@ -1,0 +1,13 @@
+{
+  "name": "system-hotel-server",
+  "version": "1.0.0",
+  "description": "Програмна система «Готель» з клієнт-серверною архітектурою",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.3"
+  }
+}

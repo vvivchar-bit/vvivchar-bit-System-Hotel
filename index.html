@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Програмна система «Готель»</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <div class="page-shell">
+    <nav class="top-nav">
+      <div class="logo">ГОТЕЛЬ<span>ІНН</span></div>
+
+      <div class="nav-links">
+        <a href="index.html">Головна</a>
+        <a href="booking.html">Бронювання</a>
+        <a href="admin.html">Адмін-панель</a>
+        <a href="requirements.html">Вимоги</a>
+        <a href="glossary.html">Глосарій</a>
+        <a href="rooms-admin.html">Номери</a>
+      </div>
+    </nav>
+
+    <main class="home-layout">
+      <section class="main-card">
+        <header class="hero">
+          <div class="hero-content">
+            <p class="hero-label">Програмна система «Готель»</p>
+            <h1>Відпочинок та комфорт</h1>
+            <p>
+              Вебзастосунок для перегляду номерів, створення бронювань,
+              обліку заявок клієнтів і демонстрації покриття вимог.
+            </p>
+
+            <div class="hero-actions">
+              <a href="booking.html" class="btn primary">Створити бронювання</a>
+              <a href="admin.html" class="btn secondary">Перейти до адмін-панелі</a>
+            </div>
+          </div>
+
+          <div class="quick-card">
+            <h3>Швидкий перехід</h3>
+
+            <a href="booking.html" class="quick-link">
+              <span>Бронювання</span>
+              <strong>↗</strong>
+            </a>
+
+            <a href="admin.html" class="quick-link">
+              <span>Адмін-панель</span>
+              <strong>↗</strong>
+            </a>
+
+            <a href="requirements.html" class="quick-link">
+              <span>Покриття вимог</span>
+              <strong>↗</strong>
+            </a>
+          </div>
+        </header>
+
+        <section class="content-block">
+          <div class="section-title">
+            <div>
+              <h2>Номери готелю</h2>
+              <p>Клієнт може переглянути доступні номери, їх тип, ціну, опис і статус.</p>
+            </div>
+
+            <div class="small-tabs">
+              <button class="tab-btn active" type="button" onclick="setRoomFilter('all', this)">Усі</button>
+              <button class="tab-btn" type="button" onclick="setRoomFilter('free', this)">Вільні</button>
+              <button class="tab-btn" type="button" onclick="setRoomFilter('booked', this)">Заброньовані</button>
+              <button class="tab-btn" type="button" onclick="setRoomFilter('occupied', this)">Зайняті</button>
+            </div>
+          </div>
+
+          <div id="roomsList" class="rooms-grid"></div>
+        </section>
+      </section>
+
+      <aside class="side-card">
+        <h2>Популярні напрямки</h2>
+
+        <div class="destination-list">
+          <div class="mini-card">
+            <div style="background-image:url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=400&q=80');"></div>
+            <p>Дубай, ОАЕ</p>
+          </div>
+
+          <div class="mini-card">
+            <div style="background-image:url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=400&q=80');"></div>
+            <p>Париж, Франція</p>
+          </div>
+
+          <div class="mini-card">
+            <div style="background-image:url('https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=400&q=80');"></div>
+            <p>Лондон, Англія</p>
+          </div>
+        </div>
+
+        <div class="side-section">
+          <h3>Типи номерів</h3>
+
+          <div class="type-list">
+            <button class="mini-card type-card" type="button" onclick="setRoomTypeQuick('Одномісний')">
+              <div style="background-image:url('https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=400&q=80');"></div>
+              <p>Одномісний</p>
+            </button>
+
+            <button class="mini-card type-card" type="button" onclick="setRoomTypeQuick('Двомісний')">
+              <div style="background-image:url('https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=400&q=80');"></div>
+              <p>Двомісний</p>
+            </button>
+
+            <button class="mini-card type-card" type="button" onclick="setRoomTypeQuick('Люкс')">
+              <div style="background-image:url('https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=400&q=80');"></div>
+              <p>Люкс</p>
+            </button>
+          </div>
+        </div>
+
+        <div class="side-section">
+          <h3>Керування системою</h3>
+
+          <a href="booking.html" class="booking-link-card">
+            <div>
+              <span>Перейти до бронювання</span>
+              <p>Створення нової заявки клієнта.</p>
+            </div>
+            <strong>↗</strong>
+          </a>
+
+          <a href="admin.html" class="booking-link-card second-link">
+            <div>
+              <span>Перейти до бронювань</span>
+              <p>Перегляд, підтвердження, заселення та видалення заявок.</p>
+            </div>
+            <strong>↗</strong>
+          </a>
+        </div>
+
+        <div class="side-section">
+          <h3>Стан системи</h3>
+
+          <div class="small-info-list">
+            <div>
+              <span id="sideRoomsCount">0</span>
+              <p>номерів у системі</p>
+            </div>
+
+            <div>
+              <span id="sideBookingsCount">0</span>
+              <p>створених бронювань</p>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <footer>
+      Програмна система «Готель» · HTML · CSS · JavaScript · LocalStorage
+    </footer>
+  </div>
+</body>
+</html>

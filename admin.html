@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Адмін-панель · Готель</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <div class="page-shell">
+    <nav class="top-nav">
+      <div class="logo">ГОТЕЛЬ<span>ІНН</span></div>
+
+      <div class="nav-links">
+        <a href="index.html">Головна</a>
+        <a href="booking.html">Бронювання</a>
+        <a href="admin.html">Адмін-панель</a>
+        <a href="requirements.html">Вимоги</a>
+      </div>
+    </nav>
+
+    <main class="single-page">
+      <section class="section-card">
+        <div class="section-title">
+          <div>
+            <h2>Адміністративна панель</h2>
+            <p>
+              Адміністратор переглядає всі заявки, підтверджує бронювання,
+              заселяє клієнта, скасовує або видаляє заявку.
+            </p>
+          </div>
+        </div>
+
+        <div class="stats-row">
+          <div class="stat">
+            <span id="roomsCount">0</span>
+            <p>Номерів</p>
+          </div>
+
+          <div class="stat">
+            <span id="bookingsCount">0</span>
+            <p>Бронювань</p>
+          </div>
+
+          <div class="stat">
+            <span id="freeCount">0</span>
+            <p>Вільних</p>
+          </div>
+
+          <div class="stat">
+            <span id="incomeCount">0 грн</span>
+            <p>Сума</p>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Клієнт</th>
+                <th>Телефон</th>
+                <th>Номер</th>
+                <th>Період</th>
+                <th>Статус</th>
+                <th>Коментар</th>
+                <th>Дії</th>
+              </tr>
+            </thead>
+            <tbody id="bookingsTable"></tbody>
+          </table>
+        </div>
+
+        <p id="emptyText" class="empty">Поки що бронювань немає.</p>
+
+        <div class="page-actions">
+          <a href="booking.html" class="btn primary">Створити бронювання</a>
+          <a href="index.html" class="btn secondary">Повернутися на головну</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      Програмна система «Готель» · Адміністративна панель
+    </footer>
+  </div>
+</body>
+</html>

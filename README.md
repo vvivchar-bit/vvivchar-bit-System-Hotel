@@ -17,10 +17,7 @@
 
 ➡️ [requirements-analysis/](requirements-analysis/)
 
-### Фінальний звіт
 
-* [Фінальний звіт DOC](requirements-analysis/zvit-analiz-vymoh-system-hotel-final.doc)
-* [Фінальний звіт DOCX](requirements-analysis/zvit-analiz-vymoh-system-hotel-final.docx)
 
 ### Відповіді на питання
 

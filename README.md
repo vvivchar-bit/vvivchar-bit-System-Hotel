@@ -1,216 +1,103 @@
 # Програмна система «Готель»
 
-Навчальний вебпроєкт для автоматизації основних процесів роботи готелю.
+Навчальний вебпроєкт для демонстрації роботи програмної системи готелю: перегляд номерів, створення бронювання, адміністративне керування заявками, глосарій вимог, керування номерами та аналіз вимог.
 
-Проєкт розробляється в межах дисципліни **«Аналіз вимог до програмного забезпечення»**.  
-Система поступово доповнюється протягом курсу: вимогами, документацією, UML-діаграмами та новою функціональністю.
+## Основні сторінки програми
 
----
+* [Головна сторінка](index.html)
+* [Бронювання](booking.html)
+* [Адмін-панель](admin.html)
+* [Покриття вимог](requirements.html)
+* [Глосарій](glossary.html)
+* [Керування номерами](rooms-admin.html)
 
-## Мета проєкту
+## Аналіз вимог
 
-Метою створення програмної системи **«Готель»** є автоматизація процесів пошуку номерів, бронювання, перегляду статусів номерів, обліку бронювань і формування базової статистики роботи готелю.
+Матеріали навчальної роботи з аналізу вимог до програмної системи «Готель» розміщено в окремій папці:
 
----
+➡️ [requirements-analysis/](requirements-analysis/)
 
-## Основні можливості
+### Фінальний звіт
 
-У поточній версії реалізовано:
+* [Фінальний звіт DOC](requirements-analysis/zvit-analiz-vymoh-system-hotel-final.doc)
+* [Фінальний звіт DOCX](requirements-analysis/zvit-analiz-vymoh-system-hotel-final.docx)
 
-- перегляд списку номерів;
-- пошук номера за типом;
-- фільтрація номерів за статусом;
-- бронювання вільного номера;
-- введення імені, телефону та email клієнта;
-- вибір дати заїзду та дати виїзду;
-- перевірка коректності дат;
-- скасування бронювання;
-- автоматична зміна статусу номера;
-- збереження бронювань у браузері через `localStorage`;
-- перегляд статистики готелю.
+### Відповіді на питання
 
----
+1. [Визначення поняття вимоги. Класифікація вимог](requirements-analysis/pytannia-01-vyznachennia-vymohy-klasyfikatsiia-vymoh.md)
+2. [Класифікація за масштабом. Класифікація з архітектури](requirements-analysis/pytannia-02-klasyfikatsiia-za-masshtabom-klasyfikatsiia-z-arkhitektury.md)
+3. [Класифікація за характером використання інформації](requirements-analysis/pytannia-03-klasyfikatsiia-za-kharakterom-vykorystannia-informatsii.md)
+4. [Класифікація за системою подання даних](requirements-analysis/pytannia-04-klasyfikatsiia-za-systemoiu-podannia-danykh.md)
+5. [Класифікація за підтримуваними стандартами управління і технологіями комунікації. Класифікація за ступенем автоматизації](requirements-analysis/pytannia-05-klasyfikatsiia-za-standartamy-upravlinnia-i-tekhnolohiiamy-komunikatsii-stupin-avtomatyzatsii.md)
+6. [Рівні та повнота вимог](requirements-analysis/pytannia-06-rivni-ta-povnota-vymoh.md)
+7. [Ясність вимог](requirements-analysis/pytannia-07-yasnist-vymoh-nedvoznaachnist-vyznachenist-odnoznachnist-spetsyfikatsii.md)
+8. [Коректність і узгодженість вимог](requirements-analysis/pytannia-08-korektnist-i-uzghodzhenist-vymoh-nesuperechnist.md)
+9. [Верифікація вимог](requirements-analysis/pytannia-09-veryfikatsiia-vymoh-prydatnist-do-perevirky.md)
+10. [Необхідність і корисність при експлуатації вимог](requirements-analysis/pytannia-10-neobkhidnist-i-korysnist-pry-ekspluatatsii-vymoh.md)
+11. [Впорядкованість за важливістю і стабільністю вимог](requirements-analysis/pytannia-11-vporiadkovanist-za-vazhlyvistiu-i-stabilnistiu-vymoh.md)
+12. [Наявність кількісної метрики вимог](requirements-analysis/pytannia-12-naiavnist-kilkisnoi-metryky-vymoh.md)
+13. [Робочий потік аналізу вимог](requirements-analysis/pytannia-13-robochyi-potik-analizu-vymoh.md)
+14. [Хто створює і використовує вимоги](requirements-analysis/pytannia-14-khto-stvoriuie-i-vykorystovuie-vymohy.md)
+15. [Організація роботи з вимогами](requirements-analysis/pytannia-15-orhanizatsiia-roboty-z-vymohamy.md)
+16. [Аналіз вимог, бізнес-аналіз, аналіз проблемної області](requirements-analysis/pytannia-16-analiz-vymoh-biznes-analiz-analiz-problemnoi-oblasti.md)
+17. [Роль глосарію при аналізі вимог](requirements-analysis/pytannia-17-rol-hlosariiu-pry-analizi-vymoh.md)
+18. [Аналіз вимог та інші робочі потоки програмної інженерії](requirements-analysis/pytannia-18-analiz-vymoh-ta-inshi-robochi-potoky-prohramnoi-inzhenerii.md)
+19. [Джерела вимог](requirements-analysis/pytannia-19-dzherela-vymoh.md)
+20. [Стратегії виявлення вимог](requirements-analysis/pytannia-20-stratehii-vyiavlennia-vymoh.md)
+21. [Прототипування](requirements-analysis/pytannia-21-prototypuvannia.md)
+22. [Специфікація варіанту використання. Вільний формат](requirements-analysis/pytannia-22-spetsyfikatsiia-variantu-vykorystannia-vilnyi-format.md)
+23. [Специфікація варіанту використання. Шаблон повного опису](requirements-analysis/pytannia-23-spetsyfikatsiia-variantu-vykorystannia-shablon-povnoho-opysu.md)
+24. [Специфікація варіанту використання за А. Кобер](requirements-analysis/pytannia-24-spetsyfikatsiia-variantu-vykorystannia-za-a-kober.md)
+25. [Специфікація варіанту використання. Табличні представлення варіанту використання](requirements-analysis/pytannia-25-spetsyfikatsiia-variantu-vykorystannia-tablychni-predstavlennia.md)
+26. [Актори і варіанти використання](requirements-analysis/pytannia-26-aktory-i-varianty-vykorystannia.md)
+27. [Бачення продукту і межі проєкту](requirements-analysis/pytannia-27-bachennia-produktu-i-mezhi-proektu.md)
+28. [Специфікація функціональних вимог. Атрибути вимог](requirements-analysis/pytannia-28-spetsyfikatsiia-funktsionalnykh-vymoh-atrybuty-vymoh.md)
+29. [Моделі UML, що пояснюють функціональність системи](requirements-analysis/pytannia-29-modeli-uml-shcho-poiasniuiut-funktsionalnist-systemy.md)
+30. [Діаграма варіантів використання](requirements-analysis/pytannia-30-diahrama-variantiv-vykorystannia.md)
+31. [Діаграма дій](requirements-analysis/pytannia-31-diahrama-dii.md)
+32. [Діаграма станів](requirements-analysis/pytannia-32-diahrama-staniv.md)
 
-## Статуси номерів
+### Докази реалізації
 
-У системі використовуються такі статуси номерів:
+* [Скріншоти реалізації](requirements-analysis/screenshots/)
+* [UML-діаграми у форматі draw.io](requirements-analysis/diagrams/)
 
-- **Вільний** — номер доступний для бронювання;
-- **Заброньований** — номер уже зарезервований клієнтом;
-- **Зайнятий** — номер недоступний для нового бронювання;
-- **Недоступний** — номер тимчасово не може використовуватися через технічну проблему або обслуговування.
+Ключові докази:
 
----
+* [Глосарій вимог](requirements-analysis/screenshots/13-glossary-requirements.png)
+* [UML-діаграма варіантів використання](requirements-analysis/screenshots/14-use-case-diagram.png)
+* [Керування номерами](requirements-analysis/screenshots/15-rooms-admin-management.png)
+* [UML-діаграма дій](requirements-analysis/screenshots/16-uml-activity-booking-flow.png)
+* [UML-діаграма станів](requirements-analysis/screenshots/17-uml-state-diagram.png)
 
-## Користувачі системи
+## Додані функції
 
-Основні актори програмної системи:
+У проєкт додано:
 
-- **Клієнт** — переглядає номери, виконує пошук, бронює та скасовує бронювання;
-- **Адміністратор** — переглядає бронювання та змінює статуси номерів;
-- **Менеджер** — керує інформацією про номери;
-- **Керівник готелю** — переглядає статистику та формує звіти;
-- **Система оплати** — зовнішня система для обробки платежів;
-- **Email-сервіс** — зовнішній сервіс для надсилання підтверджень.
-
----
-
-## Використані технології
-
-- HTML
-- CSS
-- JavaScript
-- LocalStorage
-- GitHub Pages
-- Umbrello UML Modeller
-- Miro
-
----
-
-## Структура проєкту
-
-```text
-System-Hotel/
-├── index.html
-├── style.css
-├── script.js
-├── README.md
-└── docs/
-    ├── glossary.md
-    ├── use-cases.md
-    ├── state-diagrams.md
-    ├── uml-modeling.md
-    ├── hotel_use_case_diagram.xmi
-    ├── hotel_uml_model_topic5.xmi
-    ├── hotel_uml_model_topic5.1.xmi
-    ├── hotel_uml_model_topic5.2.xmi
-    ├── hotel_uml_model_topic5.3.xmi
-    └── lr5_hotel_state_activity_diagrams.xmi
-```
-
----
-
-## Документація
-
-У папці `docs` розміщено документацію та UML-матеріали проєкту:
-
-- `glossary.md` — глосарій термінів програмної системи «Готель»;
-- `use-cases.md` — опис акторів і варіантів використання системи;
-- `state-diagrams.md` — опис UML-діаграм станів для функцій системи;
-- `uml-modeling.md` — опис UML-моделювання внутрішнього устрою системи;
-- `hotel_use_case_diagram.xmi` — UML-діаграма варіантів використання, створена в Umbrello;
-- `hotel_uml_model_topic5*.xmi` — UML-моделі для розширеного аналізу вимог і моделювання;
-- `lr5_hotel_state_activity_diagrams.xmi` — UML-модель діаграм станів, створена в Umbrello.
-
----
-
-## UML-матеріали
-
-У межах проєкту створено такі UML-діаграми:
-
-### Діаграма варіантів використання
-
-Показує акторів системи та основні варіанти використання:
-
-- перегляд номерів;
-- пошук номера;
-- фільтрація номерів;
-- бронювання номера;
-- скасування бронювання;
-- перегляд бронювань;
-- керування номерами;
-- перегляд статистики;
-- формування звітів;
-- оплата бронювання;
-- надсилання підтвердження.
-
-Файл: `docs/hotel_use_case_diagram.xmi`
-
-### UML-моделювання внутрішнього устрою системи
-
-Створено діаграми:
-
-- діаграма класів;
-- діаграма послідовності;
-- діаграма діяльності;
-- діаграма компонентів.
-
-Опис: `docs/uml-modeling.md`
-
-### Діаграми станів
-
-Створено діаграми станів для таких частин системи:
-
-- стан номера;
-- стан бронювання;
-- пошук номера.
-
-Опис: `docs/state-diagrams.md`
-
-Файл Umbrello: `docs/lr5_hotel_state_activity_diagrams.xmi`
-
----
-
-## Етапи виконання проєкту
-
-Проєкт поступово доповнюється відповідно до практичних робіт:
-
-1. Аналіз предметної області та формування початкових вимог.
-2. Концепція створення програмного забезпечення.
-3. Розробка глосарію.
-4. Пошук акторів і варіантів використання розроблюваної системи.
-5. Розширений аналіз вимог і UML-моделювання.
-6. Розробка UML-діаграм станів для функцій системи.
-
----
+* окрему сторінку `glossary.html` для глосарію вимог;
+* окрему сторінку `rooms-admin.html` для керування номерами;
+* серверну частину `server.js`;
+* збереження номерів і бронювань у JSON-файлах;
+* таблицю покриття вимог реалізацією;
+* скріншоти та UML-діаграми як докази виконання роботи.
 
 ## Запуск проєкту
 
-Проєкт можна запустити двома способами.
+Встановити залежності:
 
-### 1. Через GitHub Pages
-
-Працююча сторінка програми:
-
-```text
-https://vvivchar-bit.github.io/System-Hotel/
+```bash
+npm install
 ```
 
-### 2. Локально
+Запустити сервер:
 
-Потрібно завантажити репозиторій і відкрити файл:
-
-```text
-index.html
+```bash
+node server.js
 ```
 
-у будь-якому сучасному браузері.
-
----
-
-## Посилання
-
-Репозиторій GitHub:
+Відкрити у браузері:
 
 ```text
-https://github.com/vvivchar-bit/System-Hotel
+http://localhost:3000
 ```
 
-Працююча версія програми:
-
-```text
-https://vvivchar-bit.github.io/System-Hotel/
-```
-
-Документація проєкту:
-
-```text
-https://github.com/vvivchar-bit/System-Hotel/tree/main/docs
-```
-
----
-
-## Автор
-
-**Вівчар Вадим Вікторович**  
-Група **АЛК-43**
